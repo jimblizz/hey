@@ -1,40 +1,58 @@
 {
-  "name": "hey.js",
-  "version": "1.1.5",
-  "main": "dist/js/heyModal.min.js",
-  "repository": {
-    "url": "git@github.com:jayfreestone/hey.git",
-    "type": "git"
+  "_from": "github:jimblizz/hey",
+  "_id": "hey.js@1.1.5",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/hey.js",
+  "_phantomChildren": {
+    "ms": "2.0.0"
   },
-  "author": "Jay Freestone <mail@jayfreestone.com>",
-  "license": "MIT",
-  "scripts": {
-    "precommit": "npm run build && git add dist",
-    "build": "npm run build:css && npm run build:js && npm run build:images",
-    "build:images": "imagemin src/img/* -o dist/img",
-    "build:css": "node-sass --output-style compressed -o dist/css src/sass/ && postcss -u autoprefixer -r dist/css/*.css",
-    "build:js": "NODE_ENV=production ./node_modules/.bin/rollup -c",
-    "buildDev:js": "./node_modules/.bin/rollup -c",
-    "watch": "parallelshell 'npm run build' 'npm run watch:all' 'npm run browsersync'",
-    "browsersync": "browser-sync start --server --files 'dist/js/*.js, dist/css/*.css'",
-    "watch:all": "parallelshell 'npm run watch:images' 'npm run watch:css' 'npm run watch:js'",
-    "watch:images": "onchange 'src/img/*' -- npm run build:images",
-    "watch:css": "onchange 'src/sass/*.scss' -- npm run build:css",
-    "watch:js": "./node_modules/.bin/rollup -c -w"
+  "_requested": {
+    "type": "git",
+    "raw": "hey.js@github:jimblizz/hey",
+    "name": "hey.js",
+    "escapedName": "hey.js",
+    "rawSpec": "github:jimblizz/hey",
+    "saveSpec": "github:jimblizz/hey",
+    "fetchSpec": null,
+    "gitCommittish": null
   },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "github:jimblizz/hey#513f0baebe778967fa4c49347687abb4d7e9ba53",
+  "_spec": "hey.js@github:jimblizz/hey",
+  "_where": "/var/application/AMLPortal/app",
+  "author": {
+    "name": "Jay Freestone",
+    "email": "mail@jayfreestone.com"
+  },
+  "bugs": {
+    "url": "https://github.com/jayfreestone/hey/issues"
+  },
+  "bundleDependencies": false,
   "dependencies": {
     "assignment": "^2.2.1",
+    "custom-event-polyfill": "^0.3.0",
+    "debug": "^2.6.1",
+    "onchange": "^3.2.1"
+  },
+  "deprecated": false,
+  "description": "hey.js is a simple dependency-free modal written in JavaScript.",
+  "devDependencies": {
     "autoprefixer": "^6.7.6",
     "babel-core": "^6.22.1",
     "babel-preset-es2015-rollup": "^3.0.0",
     "browser-sync": "^2.18.8",
-    "custom-event-polyfill": "^0.3.0",
-    "debug": "^2.6.1",
+    "eslint": "^3.12.2",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.8.0",
     "husky": "^0.13.2",
     "imagemin-cli": "^3.0.0",
-    "node-sass": "^4.4.0",
+    "node-sass": "^6.0.1",
     "normalize.css": "^5.0.0",
-    "onchange": "^3.2.1",
     "parallelshell": "^3.0.0",
     "postcss-cli": "^3.0.0-beta",
     "rollup": "^0.41.4",
@@ -44,11 +62,27 @@
     "rollup-plugin-uglify": "^1.0.1",
     "rollup-watch": "^3.2.2"
   },
-  "devDependencies": {
-    "eslint": "^3.12.2",
-    "eslint-config-airbnb": "^13.0.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^2.2.3",
-    "eslint-plugin-react": "^6.8.0"
-  }
+  "homepage": "https://github.com/jayfreestone/hey#readme",
+  "license": "MIT",
+  "main": "dist/js/heyModal.min.js",
+  "name": "hey.js",
+  "repository": {
+    "url": "git+ssh://git@github.com/jayfreestone/hey.git",
+    "type": "git"
+  },
+  "scripts": {
+    "browsersync": "browser-sync start --server --files 'dist/js/*.js, dist/css/*.css'",
+    "build": "npm run build:css && npm run build:js && npm run build:images",
+    "build:css": "node-sass --output-style compressed -o dist/css src/sass/ && postcss -u autoprefixer -r dist/css/*.css",
+    "build:images": "imagemin src/img/* -o dist/img",
+    "build:js": "NODE_ENV=production ./node_modules/.bin/rollup -c",
+    "buildDev:js": "rollup -c",
+    "precommit": "npm run build && git add dist",
+    "watch": "parallelshell 'npm run build' 'npm run watch:all' 'npm run browsersync'",
+    "watch:all": "parallelshell 'npm run watch:images' 'npm run watch:css' 'npm run watch:js'",
+    "watch:css": "onchange 'src/sass/*.scss' -- npm run build:css",
+    "watch:images": "onchange 'src/img/*' -- npm run build:images",
+    "watch:js": "rollup -c -w"
+  },
+  "version": "1.1.5"
 }
